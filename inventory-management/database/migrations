@@ -1,0 +1,29 @@
+The contents of the file /inventory-management/inventory-management/database/migrations should include migration files for creating the necessary tables for the inventory management system. Below is an example of a migration file for creating an `items` table.
+
+Create a new file named `2023_10_01_000000_create_items_table.php` in the migrations directory with the following contents:
+
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateItemsTable extends Migration
+{
+    public function up()
+    {
+        Schema::create('items', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->integer('quantity');
+            $table->decimal('price', 8, 2);
+            $table->string('description')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('items');
+    }
+}

@@ -1,0 +1,27 @@
+The contents of the file /StockTrack/StockTrack/database/migrations should include a migration file for creating an inventory table. Here is the content for a migration file named `2023_10_01_000000_create_inventories_table.php`:
+
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateInventoriesTable extends Migration
+{
+    public function up()
+    {
+        Schema::create('inventories', function (Blueprint $table) {
+            $table->id();
+            $table->string('item_name');
+            $table->integer('quantity');
+            $table->decimal('price', 8, 2);
+            $table->string('location')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('inventories');
+    }
+}

@@ -1,0 +1,21 @@
+The directory /inventory-management/inventory-management/resources/lang is intended for localization and typically contains language files. Since you haven't specified any particular language files or content, I will create a default English language file named `en.json` for localization purposes.
+
+Here are the contents for the file:
+
+/inventory-management/inventory-management/resources/lang/en.json
+{
+    "welcome": "Welcome to the Inventory Management System",
+    "inventory": "Inventory",
+    "add_item": "Add Item",
+    "edit_item": "Edit Item",
+    "delete_item": "Delete Item",
+    "item_name": "Item Name",
+    "item_quantity": "Item Quantity",
+    "item_price": "Item Price",
+    "save": "Save",
+    "cancel": "Cancel",
+    "search": "Search",
+    "no_items_found": "No items found.",
+    "success": "Operation completed successfully.",
+    "error": "An error occurred. Please try again."
+}

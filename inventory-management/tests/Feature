@@ -1,0 +1,64 @@
+The directory /inventory-management/inventory-management/tests/Feature is intended for feature test classes. Below is a sample content for a feature test class that you can place in that directory:
+
+<?php
+
+namespace Tests\Feature;
+
+use Tests\TestCase;
+
+class InventoryManagementTest extends TestCase
+{
+    /** @test */
+    public function it_can_access_the_inventory_page()
+    {
+        $response = $this->get('/inventory');
+
+        $response->assertStatus(200);
+        $response->assertSee('Inventory Management');
+    }
+
+    /** @test */
+    public function it_can_create_an_inventory_item()
+    {
+        $response = $this->post('/inventory', [
+            'name' => 'Sample Item',
+            'quantity' => 10,
+            'price' => 100.00,
+        ]);
+
+        $response->assertStatus(201);
+        $this->assertDatabaseHas('inventories', [
+            'name' => 'Sample Item',
+        ]);
+    }
+
+    /** @test */
+    public function it_can_update_an_inventory_item()
+    {
+        $item = \App\Models\Inventory::factory()->create();
+
+        $response = $this->put("/inventory/{$item->id}", [
+            'name' => 'Updated Item',
+            'quantity' => 20,
+            'price' => 150.00,
+        ]);
+
+        $response->assertStatus(200);
+        $this->assertDatabaseHas('inventories', [
+            'name' => 'Updated Item',
+        ]);
+    }
+
+    /** @test */
+    public function it_can_delete_an_inventory_item()
+    {
+        $item = \App\Models\Inventory::factory()->create();
+
+        $response = $this->delete("/inventory/{$item->id}");
+
+        $response->assertStatus(204);
+        $this->assertDatabaseMissing('inventories', [
+            'id' => $item->id,
+        ]);
+    }
+}

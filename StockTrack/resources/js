@@ -1,0 +1,4 @@
+// filepath: StockTrack/resources/js/app.js
+require('./bootstrap');
+
+// Your JavaScript code for the StockTrack application will go here.

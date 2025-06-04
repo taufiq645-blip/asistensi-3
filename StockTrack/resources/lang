@@ -1,0 +1,17 @@
+The resources/lang directory is intended for localization files. To create the initial structure for the "StockTrack" project, you can create a default language file for English. Here are the contents for the file:
+
+/StockTrack/StockTrack/resources/lang/en/messages.php
+
+<?php
+
+return [
+    'welcome' => 'Welcome to StockTrack!',
+    'inventory' => 'Inventory Management',
+    'add_item' => 'Add Item',
+    'edit_item' => 'Edit Item',
+    'delete_item' => 'Delete Item',
+    'item_added' => 'Item has been added successfully.',
+    'item_updated' => 'Item has been updated successfully.',
+    'item_deleted' => 'Item has been deleted successfully.',
+    'no_items' => 'No items found in the inventory.',
+];

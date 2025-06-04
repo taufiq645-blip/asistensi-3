@@ -1,0 +1,3 @@
+The resources/views directory is intended to contain Blade template files for rendering views. Since you have not specified any particular views to create, this directory will be intentionally left blank. 
+
+<!-- This file is intentionally left blank. -->

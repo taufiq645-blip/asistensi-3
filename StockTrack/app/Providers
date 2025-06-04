@@ -1,0 +1,91 @@
+// filepath: StockTrack/StockTrack/app/Providers/AppServiceProvider.php
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    public function register()
+    {
+        // Register any application services.
+    }
+
+    public function boot()
+    {
+        // Bootstrap any application services.
+    }
+}
+
+// filepath: StockTrack/StockTrack/app/Providers/AuthServiceProvider.php
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+
+class AuthServiceProvider extends ServiceProvider
+{
+    protected $policies = [
+        // Define your model policies here
+    ];
+
+    public function boot()
+    {
+        $this->registerPolicies();
+    }
+}
+
+// filepath: StockTrack/StockTrack/app/Providers/EventServiceProvider.php
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+
+class EventServiceProvider extends ServiceProvider
+{
+    protected $listen = [
+        // Define your event listeners here
+    ];
+
+    public function boot()
+    {
+        //
+    }
+}
+
+// filepath: StockTrack/StockTrack/app/Providers/RouteServiceProvider.php
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
+
+class RouteServiceProvider extends ServiceProvider
+{
+    protected $namespace = 'App\Http\Controllers';
+
+    public function map()
+    {
+        $this->mapApiRoutes();
+        $this->mapWebRoutes();
+    }
+
+    protected function mapApiRoutes()
+    {
+        Route::prefix('api')
+             ->middleware('api')
+             ->namespace($this->namespace)
+             ->group(base_path('routes/api.php'));
+    }
+
+    protected function mapWebRoutes()
+    {
+        Route::middleware('web')
+             ->namespace($this->namespace)
+             ->group(base_path('routes/web.php'));
+    }
+}
